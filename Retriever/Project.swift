@@ -20,7 +20,9 @@ let project = Project(
                 "Retriever/Sources",
                 "Retriever/Resources",
             ],
-            dependencies: []
+            dependencies: [
+                .external(name: "CoreFlow")
+            ]
         ),
         .target(
             name: "RetrieverTests",

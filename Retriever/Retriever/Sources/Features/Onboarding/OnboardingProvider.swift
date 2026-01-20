@@ -5,7 +5,7 @@
 
 import CoreFlow
 
-struct OnboardingProvider: DependencyProvider {
+struct OnboardingProvider {
     func provide(_ serviceLocator: ServiceLocator) {
         // serviceLocator.register(SomeService.self) { _ in
         //     SomeServiceImpl()

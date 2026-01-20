@@ -14,6 +14,19 @@ let project = Project(
                         "UIColorName": "",
                         "UIImageName": "",
                     ],
+                    "UIApplicationSceneManifest": .dictionary([
+                        "UIApplicationSupportsMultipleScenes": .boolean(true),
+                        "UISceneConfigurations": .dictionary([
+                            "UIWindowSceneSessionRoleApplication": .array([
+                                .dictionary([
+                                    "UISceneConfigurationName": .string("Default Configuration"),
+                                    "UISceneDelegateClassName": .string(
+                                        "$(PRODUCT_MODULE_NAME).SceneDelegate",
+                                    ),
+                                ]),
+                            ]),
+                        ]),
+                    ]),
                 ]
             ),
             buildableFolders: [

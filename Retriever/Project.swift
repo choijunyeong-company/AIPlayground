@@ -15,7 +15,7 @@ let project = Project(
                         "UIImageName": "",
                     ],
                     "UIApplicationSceneManifest": .dictionary([
-                        "UIApplicationSupportsMultipleScenes": .boolean(true),
+                        "UIApplicationSupportsMultipleScenes": .boolean(false),
                         "UISceneConfigurations": .dictionary([
                             "UIWindowSceneSessionRoleApplication": .array([
                                 .dictionary([

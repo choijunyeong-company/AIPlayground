@@ -5,7 +5,9 @@
 
 import CoreFlow
 
-public protocol OnboardingListener: AnyObject {}
+public protocol OnboardingListener: AnyObject {
+    func onboardingDidFinish()
+}
 
 public protocol OnboardingRouting: AnyObject {}
 

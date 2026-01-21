@@ -17,6 +17,8 @@ Pull request 타이틀은 변경 내역에 대해 알 수 있는 Prefix를 가�
 - Fix: 버그 및 오류 기능을 수정
 - Docs: 코드 베이스와 무관한 문서 수정
 
+현재 컨텍스트의 작업 명세와 브렌치 변경점을 추적하여 제목 본문을 생성하고 앞서 Prefix를 붙여 완성합니다.
+
 ## Example
 
 1. [Feat] 로그인 화면 UI 구현
@@ -26,8 +28,9 @@ Pull request 타이틀은 변경 내역에 대해 알 수 있는 Prefix를 가�
 
 # Pull request 본문 생성
 
-[템플릿](프로젝트루트/.github/pull_request_template.md)을 확인하여 본문 작성 형식을 먼저 확인
-작성 형식에 따라 내역을 작성
+컨텍스트와 브렌치 변경사항을 추적하여 어떤 작업이 진행되었는지 먼저 파악합니다.
+그 후 [템플릿](프로젝트루트/.github/pull_request_template.md)을 확인하여 본문 작성 형식을 인지합니다.
+작성 형식에 따라 변경사항을 작성하고 본문을 완성합니다.
 
 # Pull request 설정 사항
 

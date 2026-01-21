@@ -10,6 +10,7 @@ public protocol RootListener: AnyObject {}
 public protocol RootRouting: AnyObject {
     func routeToOnboarding()
     func routeToLogin()
+    func routeToMain()
     func detachOnboarding()
     func detachLogin()
 }
@@ -29,5 +30,6 @@ public final class RootCore: ScreenLessCore {
 
     func handleOnboardingFinished() {
         router?.detachOnboarding()
+        router?.routeToMain()
     }
 }

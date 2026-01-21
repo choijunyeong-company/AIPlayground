@@ -72,6 +72,9 @@ Claude setting 혹은 컨텍스트를 통해서 호스트를 식별할 수 없�
 사용자로부터 선택받은 코멘트들을 Pull request에 작성합니다.
 전체 코멘트의 body 필드 값으로는 상대방의 수고에 감사하고, 작성한 코멘트에 대한 확인을 정중히 요청하는 텍스트를 전달합니다.
 
+정말 확실한 오류이며 반드시 수정이 필요한 경우 event 값으로 "REQUEST_CHANGES"를 사용합니다.
+그 외 대부분의 경우 event 값으로 "COMMENT"를 사용합니다.
+
 ```sh
 gh api -X POST \
   /repos/{owner}/{repo}/pulls/{pr_number}/reviews \

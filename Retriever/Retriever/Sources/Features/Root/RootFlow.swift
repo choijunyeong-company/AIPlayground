@@ -16,6 +16,7 @@ public final class RootFlow: ScreenLessFlow<RootCore> {
 
     private var loginFlow: LoginFlow?
     private var onboardingFlow: OnboardingFlow?
+    private var mainFlow: MainFlow?
 
     private weak var navigationController: UINavigationController?
 
@@ -69,7 +70,19 @@ extension RootFlow: RootRouting {
     public func detachOnboarding() {
         onboardingFlow = nil
     }
+
+    public func routeToMain() {
+        let mainFlow = MainFlow(
+            listener: self,
+            argument: .init()
+        )
+        self.mainFlow = mainFlow
+        navigationController?.setViewControllers([mainFlow.screen], animated: true)
+    }
 }
+
+// MARK: - MainListener
+extension RootFlow: MainListener {}
 
 // MARK: - LoginListener
 extension RootFlow: LoginListener {

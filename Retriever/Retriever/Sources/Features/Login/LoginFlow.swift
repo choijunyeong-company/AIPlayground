@@ -20,6 +20,7 @@ public final class LoginFlow: Flow<LoginCore, LoginScreen> {
         self.listener = listener
         self.argument = argument
         super.init()
+        guard let _ = 1 as? Int else { return }
     }
 
     public override func createCore() -> LoginCore {

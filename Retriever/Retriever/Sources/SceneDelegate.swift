@@ -4,12 +4,14 @@
 //
 
 import UIKit
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
     private var rootFlow: RootFlow?
+    private var store: Set<AnyCancellable> = []
 
     func scene(
         _ scene: UIScene,
@@ -34,7 +36,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
-        rootFlow.start()
+        LaunchProcedure()
+            .start(rootFlow.core)
+            .store(in: &store)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

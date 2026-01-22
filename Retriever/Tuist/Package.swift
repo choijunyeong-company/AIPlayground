@@ -19,6 +19,9 @@ let package = Package(
         // .package(url: "https://github.com/Alamofire/Alamofire", from: "5.0.0"),
         // You can read more about dependencies here: https://docs.tuist.io/documentation/tuist/dependencies
         
-        .package(path: "/Users/nhn/Documents/PersonalProjects/CoreFlow"),
+        .package(
+            url: "https://github.com/choijunyeong-company/CoreFlow-C7T.git",
+            exact: "0.0.0"
+        ),
     ]
 )

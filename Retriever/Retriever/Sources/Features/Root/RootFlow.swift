@@ -37,17 +37,13 @@ public final class RootFlow: ScreenLessFlow<RootCore> {
         core.router = self
         return core
     }
-
-    public func start() {
-        core.start()
-    }
 }
 
 // MARK: - Routing
 extension RootFlow: RootRouting {
     public func routeToLogin() {
         let loginFlow = LoginFlow(
-            listener: self,
+            listener: core,
             argument: .init()
         )
         self.loginFlow = loginFlow
@@ -56,7 +52,7 @@ extension RootFlow: RootRouting {
 
     public func routeToOnboarding() {
         let onboardingFlow = OnboardingFlow(
-            listener: self,
+            listener: core,
             argument: .init()
         )
         self.onboardingFlow = onboardingFlow
@@ -83,17 +79,3 @@ extension RootFlow: RootRouting {
 
 // MARK: - MainListener
 extension RootFlow: MainListener {}
-
-// MARK: - LoginListener
-extension RootFlow: LoginListener {
-    public func loginDidFinish() {
-        core.handleLoginFinished()
-    }
-}
-
-// MARK: - OnboardingListener
-extension RootFlow: OnboardingListener {
-    public func onboardingDidFinish() {
-        core.handleOnboardingFinished()
-    }
-}

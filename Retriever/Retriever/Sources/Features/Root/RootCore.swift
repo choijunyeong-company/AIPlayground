@@ -20,16 +20,16 @@ public final class RootCore: ScreenLessCore {
     weak var router: RootRouting?
 
     func start() {
-        router?.routeToLogin()
-    }
-
-    func handleLoginFinished() {
-        router?.detachLogin()
         router?.routeToOnboarding()
     }
 
     func handleOnboardingFinished() {
         router?.detachOnboarding()
+        router?.routeToLogin()
+    }
+
+    func handleLoginFinished() {
+        router?.detachLogin()
         router?.routeToMain()
     }
 }

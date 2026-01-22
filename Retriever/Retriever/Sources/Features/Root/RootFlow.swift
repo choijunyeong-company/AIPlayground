@@ -42,6 +42,11 @@ public final class RootFlow: ScreenLessFlow<RootCore> {
 // MARK: - Routing
 extension RootFlow: RootRouting {
     public func routeToLogin() {
+        // 로그아웃 흐름인 경우 Main을 먼저 해제
+        if mainFlow != nil {
+            mainFlow = nil
+        }
+
         let loginFlow = LoginFlow(
             listener: core,
             argument: .init()
@@ -69,13 +74,14 @@ extension RootFlow: RootRouting {
 
     public func routeToMain() {
         let mainFlow = MainFlow(
-            listener: self,
+            listener: core,
             argument: .init()
         )
         self.mainFlow = mainFlow
         navigationController?.setViewControllers([mainFlow.screen], animated: true)
     }
-}
 
-// MARK: - MainListener
-extension RootFlow: MainListener {}
+    public func detachMain() {
+        mainFlow = nil
+    }
+}

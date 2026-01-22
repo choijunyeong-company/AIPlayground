@@ -11,7 +11,23 @@ public final class MainScreen: Screen<MainCore> {
         return label
     }()
 
-    public override func bind() {}
+    private let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("로그아웃", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.backgroundColor = .systemRed
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 12
+        return button
+    }()
+
+    public override func bind() {
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func logoutButtonTapped() {
+        reactor.send(.logoutButtonTapped)
+    }
 }
 
 extension MainScreen {
@@ -26,6 +42,7 @@ extension MainScreen {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupTitleLabel()
+        setupLogoutButton()
     }
 
     private func setupTitleLabel() {
@@ -35,6 +52,18 @@ extension MainScreen {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    private func setupLogoutButton() {
+        view.addSubview(logoutButton)
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoutButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+            logoutButton.widthAnchor.constraint(equalToConstant: 200),
+            logoutButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }

@@ -17,6 +17,9 @@ protocol RootProcedureStep {
 
     /// Main 화면으로 라우팅하는 마지막 Step
     func routeToMain()
+
+    /// Logout 완료를 기다리는 Step
+    func waitForLogout() -> AnyPublisher<(RootProcedureStep, Void), Never>
 }
 
 public protocol RootListener: AnyObject {}
@@ -27,6 +30,7 @@ public protocol RootRouting: AnyObject {
     func routeToMain()
     func detachOnboarding()
     func detachLogin()
+    func detachMain()
 }
 
 public final class RootCore: ScreenLessCore {
@@ -36,6 +40,7 @@ public final class RootCore: ScreenLessCore {
     /// Step 완료를 알리기 위한 Subject입니다.
     private let onboardingStepFinished = CurrentValueSubject<Bool, Never>(false)
     private let loginStepFinished = CurrentValueSubject<Bool, Never>(false)
+    private let logoutStepFinished = CurrentValueSubject<Bool, Never>(false)
 }
 
 // MARK: - OnboardingListener
@@ -74,5 +79,22 @@ extension RootCore: RootProcedureStep {
 
     func routeToMain() {
         router?.routeToMain()
+    }
+
+    func waitForLogout() -> AnyPublisher<(RootProcedureStep, Void), Never> {
+        logoutStepFinished
+            .filter { $0 }
+            .map { _ in (self, ()) }
+            .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - MainListener
+extension RootCore: MainListener {
+    public func mainDidRequestLogout() {
+        loginStepFinished.send(false)
+        
+        logoutStepFinished.send(true)
+        logoutStepFinished.send(false)
     }
 }

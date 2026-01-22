@@ -11,8 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     private var rootFlow: RootFlow?
-    private var store: Set<AnyCancellable> = []
-
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -36,9 +34,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
+        startLaunchProcedure()
+    }
+
+    /// 앱 시작 Procedure: Onboarding -> Login -> Main
+    private func startLaunchProcedure() {
+        guard let core = rootFlow?.core else { return }
+
         LaunchProcedure()
-            .start(rootFlow.core)
-            .store(in: &store)
+            .start(core) { [weak self] in
+                self?.startLogoutThenLoginProcedure()
+            }
+    }
+
+    /// 로그아웃 후 로그인 순환 Procedure: Logout 대기 -> Login -> Main (반복)
+    private func startLogoutThenLoginProcedure() {
+        guard let core = rootFlow?.core else { return }
+
+        // 이전 Procedure 취소 (새 값 할당 시 자동 취소)
+        LogoutThenLoginProcedure()
+            .start(core, onProcedureFinish: { [weak self] in
+                self?.startLogoutThenLoginProcedure()
+            })
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

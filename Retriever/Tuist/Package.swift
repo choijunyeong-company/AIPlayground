@@ -21,7 +21,7 @@ let package = Package(
         
         .package(
             url: "https://github.com/choijunyeong-company/CoreFlow-C7T.git",
-            exact: "0.0.0"
+            exact: "0.0.3"
         ),
     ]
 )

@@ -6,8 +6,8 @@ description: 작업 사항에 대해 Pull request 생성 요청시 해당 스킬
 1. 베이스 브렌치를 식별합니다. 컨텍스트를 통해서 알아낼 수 없는 경우 사용자에게 직접 묻습니다.
 2. Pull request 타이틀을 생성합니다. [참조](#pull-request-타이틀-생성)
 3. 템플릿 파일을 기반으로 Pull request 본문을 생성합니다. [참조](#pull-request-본문-생성)
-4. Pull request의 설정사항을 반영해줘 [참조](#pull-request-설정-사항)
-5. `gh` 툴과 생성한 정보들을 사용하여 Pull request를 생성합니다. [참조](#pull-request-생성)
+4. `gh` 툴과 생성한 정보들을 사용하여 Pull request를 생성합니다. [참조](#pull-request-생성)
+5. 생성후속 조치를 진행합니다. [참조](#pull-request-생성-후속-조치-가이드)
 
 # Pull request 타이틀 생성 
 
@@ -31,10 +31,9 @@ Pull request 타이틀은 변경 내역에 대해 알 수 있는 Prefix를 가�
 1. 작업과 관련된 계획 및 변경사항을 컨텍스트를 통해 인지합니다. 브랜치 변경사항을 추적하여 어떤 작업이 진행되었는지 파악합니다.
 2. 이를 바탕으로 본문을 작성하며 [작성 가이드](./references/body.md)를 반드시 준수합니다.
 
-# Pull request 설정 사항
+# Pull request 생성 후속 조치 가이드
 
-1. Assignee를 나로 지정해줘
-2. 추가예정
+1. 생성한 Pull request의 Assignee를 나로 지정해줘
 
 # Pull request 생성
 

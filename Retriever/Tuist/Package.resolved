@@ -1,6 +1,15 @@
 {
-  "originHash" : "1a4a7dfb274a3aa005516784dbde70adc19206e35daafcc7105f7b12609d4153",
+  "originHash" : "39fa93041c54fda8c4019d5afbc5108d374419b37136ebd9f331fa91700358d0",
   "pins" : [
+    {
+      "identity" : "coreflow-c7t",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/choijunyeong-company/CoreFlow-C7T.git",
+      "state" : {
+        "revision" : "7e2961176c59c89f87f5ecf9daec458f822bc56a",
+        "version" : "0.0.0"
+      }
+    },
     {
       "identity" : "swinject",
       "kind" : "remoteSourceControl",

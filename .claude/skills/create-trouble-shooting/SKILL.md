@@ -3,7 +3,11 @@ name: create-trouble-shooting
 description: 해결한 문제상황에 대해 트러블 슈팅 문서를 작성합니다.
 ---
 
+<<<<<<< Updated upstream
 1. [템플릿 파일]("template.md")을 읽고 작성 양식을 정확히 숙지합니다.
+=======
+1. [템플릿 파일]("/Users/nhn/Documents/PersonalProjects/second-brain/SecondBrain/보관소/Develop/TroubleShooting/template.md")을 읽고 작성 양식을 정확히 숙지합니다.
+>>>>>>> Stashed changes
 2. 템플릿에 맞춰 문서를 작성합니다.
 3. 생성한 문서를 디렉터리에 위치시킵니다. [참조](#문서-카테고리-분류하기)
 

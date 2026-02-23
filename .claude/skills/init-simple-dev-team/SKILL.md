@@ -7,6 +7,14 @@ description: simple dev team을 생성하고 실행합니다.
 
 `settings.local.json`에서 클로드 에이전트 팀 사용에 대한 옵션이 활성화되어 있는지 확인합니다.
 비활성화 상태라면 활성화할 것을 사용자에게 요구합니다.
+`settings.json`혹은 `settings.local.json`파일에 다음 내용이 있어야합니다.
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
 
 # Simple dev team 생성
 

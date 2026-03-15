@@ -25,11 +25,13 @@ description: 변경사항을 추적하여 문서의 부정확한 표현 및 오�
 # 검토 기준
 
 ## 한국어 문서
+
 - 맞춤법 및 띄어쓰기
 - 조사 사용의 정확성
 - 문장 종결어미 일관성
 
 ## 영어 문서
+
 - Spelling errors
 - Grammar issues
 - Punctuation consistency

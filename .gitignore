@@ -1,2 +1,4 @@
 .DS_Store
 .env
+.claude/**/taskdetail/*.md
+.claude/**/taskchecklist/*.md

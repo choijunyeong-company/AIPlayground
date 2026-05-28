@@ -1,22 +1,22 @@
 ---
 name: init-commit-template
-description: 현재 프로젝트의 git log를 분석하여 커밋 타이틀/메시지 스타일을 파악하고 `~/.commitTemplates/{cwd이름}.md`에 저장한다. use when 다른 커밋 스킬(whole-commit, separate-commit)에서 템플릿이 없을 때 호출되거나, 사용자가 "커밋 템플릿 초기화/생성"을 요청할 때.
+description: 현재 프로젝트의 git log를 분석하여 커밋 타이틀/메시지 스타일을 파악하고 `~/.agent-memory/commitTemplates/{cwd이름}.md`에 저장한다. use when 다른 커밋 스킬(whole-commit, separate-commit)에서 템플릿이 없을 때 호출되거나, 사용자가 "커밋 템플릿 초기화/생성"을 요청할 때.
 ---
 
 # init-commit-template
 
 ## 개요
 
-현재 작업 디렉터리의 git 커밋 이력을 분석하여 해당 프로젝트의 커밋 컨벤션(타이틀 접두사, 어조, 언어, 본문 스타일 등)을 추출하고, 그 결과를 `~/.commitTemplates/{cwd이름}.md` 경로의 마크다운 템플릿 파일로 저장합니다. 이후 `whole-commit`, `separate-commit` 등 다른 커밋 관련 스킬이 템플릿을 참조하여 일관된 스타일의 커밋 메시지를 생성할 수 있도록 합니다.
+현재 작업 디렉터리의 git 커밋 이력을 분석하여 해당 프로젝트의 커밋 컨벤션(타이틀 접두사, 어조, 언어, 본문 스타일 등)을 추출하고, 그 결과를 `~/.agent-memory/commitTemplates/{cwd이름}.md` 경로의 마크다운 템플릿 파일로 저장합니다. 이후 `whole-commit`, `separate-commit` 등 다른 커밋 관련 스킬이 템플릿을 참조하여 일관된 스타일의 커밋 메시지를 생성할 수 있도록 합니다.
 
 ## 절차
 
 ### Step 1: 템플릿 저장 디렉터리 확인 및 생성
 
-`~/.commitTemplates` 디렉터리의 존재 여부를 확인하고, 없으면 생성합니다.
+`~/.agent-memory/commitTemplates` 디렉터리의 존재 여부를 확인하고, 없으면 생성합니다.
 
 ```bash
-mkdir -p ~/.commitTemplates
+mkdir -p ~/.agent-memory/commitTemplates
 ```
 
 ### Step 2: 현재 작업 디렉터리 이름 도출
@@ -82,20 +82,20 @@ git log -n 50 --pretty=format:"%s%n%b%n---"
 
 ### Step 6: 템플릿 파일 저장
 
-`Write` 툴을 사용하여 `~/.commitTemplates/{cwd이름}.md` 경로로 저장합니다.
+`Write` 툴을 사용하여 `~/.agent-memory/commitTemplates/{cwd이름}.md` 경로로 저장합니다.
 
 - **이미 동일 파일이 존재할 경우**: 사용자에게 덮어쓸지 여부를 명시적으로 확인합니다. 사용자가 거부하면 저장하지 않고 중단하거나, 다른 파일명을 제안합니다.
 
 ```bash
 # 존재 여부 확인 예
-[ -f "$HOME/.commitTemplates/{cwd이름}.md" ] && echo "exists" || echo "new"
+[ -f "$HOME/.agent-memory/commitTemplates/{cwd이름}.md" ] && echo "exists" || echo "new"
 ```
 
 ### Step 7: 사용자에게 결과 보고
 
 저장이 완료되면 다음을 사용자에게 보고합니다.
 
-- 저장된 파일의 절대 경로 (`~/.commitTemplates/{cwd이름}.md`)
+- 저장된 파일의 절대 경로 (`~/.agent-memory/commitTemplates/{cwd이름}.md`)
 - 분석된 커밋 수
 - 식별된 주요 컨벤션 요약 (접두사, 언어, 어조 등 한두 줄)
 

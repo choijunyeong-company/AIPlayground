@@ -35,7 +35,7 @@ git diff HEAD
 
 ### Step 4: 커밋 템플릿 확인 또는 생성
 
-현재 작업 디렉터리 이름을 얻은 뒤, `~/.commitTemplates/{cwd이름}.md` 경로의 템플릿 파일 존재 여부를 확인합니다.
+현재 작업 디렉터리 이름을 얻은 뒤, `~/.agent-memory/commitTemplates/{cwd이름}.md` 경로의 템플릿 파일 존재 여부를 확인합니다.
 
 - **존재하는 경우**: 파일을 읽어 커밋 메시지 형식을 파악합니다.
 - **존재하지 않는 경우**: `init-commit-template` 스킬을 Skill 툴로 호출하여 템플릿을 생성합니다.

@@ -30,8 +30,8 @@ HEAD 기준 변경사항 전체를 하나의 커밋으로 만드는 스킬입니
 
 ## Step 4. 커밋 템플릿 확인
 
-- 현재 작업 디렉터리 이름을 구합니다. 예: `basename "$PWD"` 결과 `MyRepo` → 템플릿 경로는 `~/.commitTemplates/MyRepo.md`.
-- `~/.commitTemplates/{cwd이름}.md` 존재 여부를 확인합니다.
+- 현재 작업 디렉터리 이름을 구합니다. 예: `basename "$PWD"` 결과 `MyRepo` → 템플릿 경로는 `~/.agent-memory/commitTemplates/MyRepo.md`.
+- `~/.agent-memory/commitTemplates/{cwd이름}.md` 존재 여부를 확인합니다.
   - **존재하는 경우**: Read 툴로 해당 파일을 읽어 커밋 형식(타이틀 규칙, 본문 섹션 구성 등)을 파악합니다.
   - **존재하지 않는 경우**: 본 스킬 실행을 중단하지 말고, 먼저 `init-commit-template` 스킬을 Skill 툴로 호출하여 템플릿을 생성합니다.
     - 호출 방법: Skill 툴을 사용하며 `skill` 파라미터에 `init-commit-template`을 지정합니다.

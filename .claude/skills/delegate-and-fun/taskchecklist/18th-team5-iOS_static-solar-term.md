@@ -1,0 +1,4 @@
+- [x] Task1
+- [x] Task2, dependencies: [Task1]
+- [x] Task3
+- [x] Task4, dependencies: [Task2, Task3]

@@ -1,0 +1,4 @@
+- [x] Task1: Domain TokenRepository에 setDebugDeviceToken 메서드 추가 + Data liveValue 구현
+- [x] Task2: Presentation DebugTokenSetting Feature 및 View 구현, dependencies: [Task1]
+- [x] Task3: RootFeature에 isDebug 상태 추가 및 DebugTokenSetting 통합, dependencies: [Task2]
+- [x] Task4: 테스트 코드 작성 및 실행, dependencies: [Task3]

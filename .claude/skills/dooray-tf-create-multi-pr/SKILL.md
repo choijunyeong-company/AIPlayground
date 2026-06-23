@@ -63,6 +63,7 @@ dooray-mcp를 사용하기 위해선 업무 링크가 필요함으로 컨텍스�
 ios-dooray-service PR의 본문 템플릿은 다음과 같습니다.
 현재 HEAD와 origin/develop간의 diff를 파악 및 컨텍스트를 통해 변경사항을 인지합니다.
 변경사항들을 최대한 간결하게 PR 본문에 담는 것을 목표로 합니다.
+작성후 사용자를 PR의 Assignee로 지정합니다.
 ```
 ### 업무링크
 
@@ -98,6 +99,7 @@ ios-dooray-service PR의 본문 템플릿은 다음과 같습니다.
 ios-dooray의 PR을 작성합니다.
 PR제목의 경우 ios-dooray-service와 동일합니다.
 본문 템플릿은 다음과 같습니다. 단순 서브모듈 업데이트이기 때문에 별다른 내용입력이 없이 업무관련 정보만 표시합니다.
+작성후 사용자를 PR의 Assignee로 지정합니다.
 ```
 # 업무 링크
 

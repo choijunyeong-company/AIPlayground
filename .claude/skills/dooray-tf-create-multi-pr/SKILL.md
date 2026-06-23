@@ -39,7 +39,9 @@ ios-dooray는 ios-dooray-service와 동일한 브렌치 명을 사용해야합�
 
 이를 해결하는 방법으로 최신 origin/develop을 기준으로 현 브렌치를 리베이스 합니다.
 먼저 ios-dooray-service를 일반 rebase합니다.
-rebase충돌이 발생하는 경우 작업을 중단하고 사용자에게 직접 rebase충돌을 해소할 것을 요구합니다.
+커밋 되지 않은 변경사항들이 존재할 경우 모두 unstage 하고 stash 합니다.
+rebase 충돌이 발생하는 경우 작업을 중단하고 사용자에게 직접 rebase 충돌을 해소할 것을 요구합니다.
+충돌 없이 rebase를 완료했다면, stash 했던 내역을 재방영하고 stash 내역은 삭제합니다.
 
 ios-dooray-service의 rebase가 정상적으로 진행되었다면 곧바로 해당 브렌치를 force-push합니다. ios-dooray-service푸쉬 발생시 현재 구현되어 있는 pre-push훅이 ios-dooray저장소의 서브모듈 커밋을 업데이트하고 자동으로 푸쉬합니다.
 
